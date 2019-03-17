@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Quicksum</string>
+    <string name="oneButton">1</string>
+    <string name="twoButton">2</string>
+    <string name="threeButton">3</string>
+    <string name="fourButton">4</string>
+    <string name="fiveButton">5</string>
+    <string name="sixButton">6</string>
+    <string name="sevenButton">7</string>
+    <string name="eightButton">8</string>
+    <string name="nineButton">9</string>
+    <string name="clearButton">CLEAR</string>
+</resources>

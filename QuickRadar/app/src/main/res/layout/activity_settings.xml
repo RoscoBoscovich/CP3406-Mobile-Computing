@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Settings">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:layout_weight="1"
+        android:layout_margin="12sp"
+        android:textSize="32sp"/>
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Auto Update"
+        android:textSize="24sp"
+        android:layout_weight="3"
+        android:layout_margin="12sp" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text="Animation"
+        android:textSize="24sp"
+        android:layout_margin="12sp" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3">
+
+        <TextView
+            android:gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Location"
+
+            android:layout_margin="12sp"
+            android:textSize="24sp"/>
+        <Spinner
+            android:gravity="bottom"
+            android:layout_margin="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:entries="@array/locations">
+        </Spinner>
+
+
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/info"
+        android:layout_weight="1"
+        android:layout_margin="12sp"
+        android:textSize="32sp"/>
+
+
+</android.support.v7.widget.LinearLayoutCompat>

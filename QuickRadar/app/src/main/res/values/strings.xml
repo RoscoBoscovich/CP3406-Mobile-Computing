@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">QuickRadar</string>
+    <string name="url">http://www.bom.gov.au/radar/IDR193.gif</string>
+    <string name="info">App made by rusty \image data from the bureau of meteorology \n2019 etc etc</string>
+
+    <string-array name="locations">
+        <item>Cairns</item>
+        <item>Brisbane</item>
+        <item>Sydney</item>
+    </string-array>
+
+
+</resources>
