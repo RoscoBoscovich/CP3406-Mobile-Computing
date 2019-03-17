@@ -26,13 +26,20 @@ public class MainActivity extends AppCompatActivity {
         BomGrabber grabber = new BomGrabber();
         Bitmap[] image = grabber.returnImages();
         ImageView imageView = (ImageView)findViewById(R.id.imageView);
-        imageView.setImageBitmap(image[0]);
-        imageView = (ImageView)findViewById(R.id.imageView2);
-        imageView.setImageBitmap(image[1]);
-        imageView = (ImageView)findViewById(R.id.imageView3);
-        imageView.setImageBitmap(image[2]);
+        //imageView.setImageBitmap(image[0]);
+//        imageView = (ImageView)findViewById(R.id.imageView2);
+//        imageView.setImageBitmap(image[1]);
+//        imageView = (ImageView)findViewById(R.id.imageView3);
+//        imageView.setImageBitmap(image[2]);
         imageView = (ImageView)findViewById(R.id.imageView4);
         imageView.setImageBitmap(image[3]);
+
+
+        String date = grabber.getDate();
+        TextView textView = (TextView)findViewById(R.id.textView);
+        textView.setText(date);
+
+
     }
 
 

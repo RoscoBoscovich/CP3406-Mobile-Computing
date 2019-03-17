@@ -17,6 +17,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:scaleType="centerCrop"
+            android:src="@drawable/map"
             />
 
         <ImageView
@@ -38,6 +39,13 @@
             android:layout_height="fill_parent"
             android:scaleType="centerCrop"
             />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:textSize="40sp"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton"
