@@ -7,76 +7,93 @@
     android:orientation="vertical"
     tools:context=".Settings">
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/settings"
         android:layout_weight="1"
-        android:layout_margin="12sp"
-        android:textSize="32sp"/>
+        android:layout_margin="24sp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:textSize="36sp"/>
 
-
-    <Switch
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:text="Animation"
-        android:textSize="24sp"
-        android:layout_margin="12sp" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3">
-
+        android:orientation="horizontal"
+        android:layout_weight="1">
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Style"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/style"
+            android:layout_weight="15"
+            android:layout_gravity="center"
             android:layout_marginBottom="5sp"
-            android:layout_margin="12sp"
-            android:textSize="24sp"/>
+            android:layout_margin="24sp"
+            android:textSize="20sp"/>
         <Spinner
-            android:gravity="bottom"
+            android:id="@+id/mapStyles"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
             android:layout_margin="12sp"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:entries="@array/styles">
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:entries="@array/mapStyles">
         </Spinner>
-    </FrameLayout>
+    </LinearLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3">
+        android:orientation="horizontal"
+        android:layout_gravity="fill_vertical"
+        android:layout_weight="1">
 
         <TextView
-            android:gravity="top"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Location"
-            android:layout_marginBottom="5sp"
-            android:layout_margin="12sp"
-            android:textSize="24sp"/>
-        <Spinner
-            android:gravity="bottom"
-            android:layout_margin="12sp"
-            android:layout_gravity="center"
+            android:id="@+id/range"
+            android:gravity="center_vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:entries="@array/locations">
-        </Spinner>
-    </FrameLayout>
+            android:layout_height="fill_parent"
+            android:text="@string/range128"
+            android:layout_weight="1"
+            android:layout_marginBottom="5sp"
+            android:layout_margin="20sp"
+            android:textSize="20sp"/>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_margin="24sp"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="10"
+            android:thumb="@drawable/thumb"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:max="3"
+            android:progress="1"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="doneClicked"
+        android:layout_gravity="center"
+        android:layout_margin="36sp"
+        android:layout_weight="1"
+        android:text="@string/doneButton"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:layout_gravity="bottom"
         android:text="@string/info"
         android:layout_weight="1"
         android:layout_margin="12sp"
-        android:textSize="24sp"/>
+        android:textSize="20sp"/>
 
 
 </android.support.v7.widget.LinearLayoutCompat>
