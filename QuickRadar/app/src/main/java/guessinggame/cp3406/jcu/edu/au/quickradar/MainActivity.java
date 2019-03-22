@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageViewOverlay;
     ImageView imageViewBackground;
     ImageView imageViewLocations;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         setContentView(R.layout.activity_main);
+
         imageViewLocations = (ImageView)findViewById(R.id.locationsOverlay);
         imageViewBackground = (ImageView)findViewById(R.id.imageViewBackground);
         switch (rangeInt) {
@@ -58,16 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 imageViewLocations.setImageResource(R.drawable.locations256km);
                 Toast.makeText(getApplicationContext(), "256km range", Toast.LENGTH_SHORT).show();
                 break;
-            case 3:
-                imageViewBackground.setImageResource(R.drawable.background64km);
-                imageViewLocations.setImageResource(R.drawable.locations64km);
-                Toast.makeText(getApplicationContext(), "512km range", Toast.LENGTH_SHORT).show();
-                break;
         }
 
         // get overlays and remove any animation runnables already on the stack
         // then post new animation runnable
-        grabber.getOverlays();
+        grabber.getOverlays(rangeInt);
         handler.removeCallbacksAndMessages(null);
             handler.post(new Runnable() {
                 @Override
@@ -120,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void refreshRadar(View view){
-        grabber.getOverlays();
+        grabber.getOverlays(rangeInt);
         Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
     }
 

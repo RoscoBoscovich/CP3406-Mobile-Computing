@@ -8,7 +8,7 @@
     <string name="settings">SETTINGS</string>
     <string name="animation">Animations</string>
     <string name="style">Map Style</string>
-    <string name="doneButton">DONE</string>
+    <string name="doneButton">APPLY</string>
     <string name="range64">Range:\n    64km</string>
     <string name="range128">Range:\n   128km</string>
     <string name="range256">Range:\n   256km</string>

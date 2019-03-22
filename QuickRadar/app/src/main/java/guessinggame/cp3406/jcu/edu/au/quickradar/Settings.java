@@ -7,15 +7,12 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
-    private Spinner spinner;
     private SeekBar seekBar;
-    private String selection;
     private TextView textView;
-//    Intent intent;
-    Bundle bundle;
     int radarRange;
     public static final int SETTINGS_REQUEST = 1;
 
@@ -26,7 +23,6 @@ public class Settings extends AppCompatActivity {
 
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         textView = (TextView) findViewById(R.id.range);
-        spinner = (Spinner) findViewById(R.id.mapStyles);
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int radarRange = 0;
@@ -44,9 +40,6 @@ public class Settings extends AppCompatActivity {
                     case 2:
                         textView.setText(R.string.range256);
                         break;
-                    case 3:
-                        textView.setText(R.string.range512);
-                        break;
                 }
             }
 
@@ -63,10 +56,7 @@ public class Settings extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         super.onBackPressed();
-        Intent intent = new Intent();
-        radarRange= seekBar.getProgress();
-        intent.putExtra("range", radarRange);
-        setResult(RESULT_OK, intent);
+        Toast.makeText(getApplicationContext(), String.format("Changes Cancelled",radarRange), Toast.LENGTH_SHORT).show();
         finish();
     }
 

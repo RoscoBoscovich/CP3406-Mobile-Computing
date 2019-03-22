@@ -2,6 +2,7 @@ package guessinggame.cp3406.jcu.edu.au.quickradar;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.widget.Toast;
 
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -27,6 +28,9 @@ public class BomGrabber extends DefaultHandler {
     private String[] timesArray = new String[7];
     private String timeUTC;
     public int animationIndex = 6;
+    private static String url64km = "http://www.bom.gov.au/radar/IDR194.T.";
+    private static String url128km = "http://www.bom.gov.au/radar/IDR193.T.";
+    private static String url256km = "http://www.bom.gov.au/radar/IDR192.T.";
 
     private void getUTCtime(){
         Date date = Calendar.getInstance().getTime();
@@ -62,10 +66,19 @@ public class BomGrabber extends DefaultHandler {
     }
 
 
-    private void getBOMUrls() {
+    private void getBOMUrls(int range) {
         this.getTimeArray();
         for (int i=0; i<7; i++){
-            urls[i] ="http://www.bom.gov.au/radar/IDR192.T." + timesArray[i]  +".png";
+            switch (range) {
+                case 0:
+                    urls[i] = url64km + timesArray[i]  +".png";
+                    break;
+                case 1:
+                    urls[i] = url128km + timesArray[i]  +".png";
+                    break;
+                case 2:
+                    urls[i] = url256km + timesArray[i]  +".png";
+            }
         }
     }
 
@@ -85,8 +98,8 @@ public class BomGrabber extends DefaultHandler {
         }
     }
 
-    public void getOverlays(){
-        this.getBOMUrls();
+    public void getOverlays(int range){
+        this.getBOMUrls(range);
         for (int i = 0; i < 7; i++) {
             overlays[i] = this.getImage(urls[i]);
         }
