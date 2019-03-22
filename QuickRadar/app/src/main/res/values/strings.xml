@@ -2,17 +2,17 @@
 
     <string name="app_name">QuickRadar</string>
     <string name="url">http://www.bom.gov.au/radar/IDR193.gif</string>
-    <string name="info">App stats and sources go here \nimage data from:\n the bureau of meteorology \n Queensland govermentr Qimagery service \nGoogle Maps \n etc etc</string>
+    <string name="info">App made by Russell Withers\nImage and radar data from:\nThe Bureau of Meteorology \nMade for CP3604\n2019</string>
     <string name="overlay">Overlay</string>
     <string name="background">Background</string>
     <string name="settings">SETTINGS</string>
     <string name="animation">Animations</string>
-    <string name="style">Map Style</string>
+    <string name="speed">Playback\nSpeed</string>
     <string name="doneButton">APPLY</string>
-    <string name="range64">Range:\n    64km</string>
-    <string name="range128">Range:\n   128km</string>
-    <string name="range256">Range:\n   256km</string>
-    <string name="range512">Range:\n   512km</string>
+    <string name="range64">Range:\n64km</string>
+    <string name="range128">Range:\n128km</string>
+    <string name="range256">Range:\n256km</string>
+    <string name="range512">Range:\n512km</string>
     <string name="radar">Radar</string>
 
 
@@ -22,10 +22,10 @@
         <item>256km</item>
     </string-array>
 
-    <string-array name="mapStyles">
-        <item>BOM Standard</item>
-        <item>Google Maps Satellite</item>
-        <item>Qimagery.gov</item>
+    <string-array name="playbackSpeed">
+        <item>Slow</item>
+        <item>Medium</item>
+        <item>Fast</item>
     </string-array>
 
 

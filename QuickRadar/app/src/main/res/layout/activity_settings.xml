@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,21 +26,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:text="@string/style"
+            android:text="@string/speed"
             android:layout_weight="15"
-            android:layout_gravity="center"
+            android:layout_gravity="center_vertical"
             android:layout_marginBottom="5sp"
-            android:layout_margin="24sp"
+            android:layout_marginTop="24sp"
+            android:layout_marginLeft="24sp"
             android:textSize="20sp"/>
         <Spinner
-            android:id="@+id/mapStyles"
+            android:id="@+id/speedSpinner"
             android:gravity="center_horizontal"
             android:layout_weight="1"
-            android:layout_margin="12sp"
+            android:layout_marginTop="12sp"
+            android:layout_marginRight="24sp"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_gravity="center_vertical"
-            android:entries="@array/mapStyles">
+            android:entries="@array/playbackSpeed">
         </Spinner>
     </LinearLayout>
 
@@ -55,23 +58,25 @@
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:text="@string/range128"
+            android:text="@string/range64"
             android:layout_weight="1"
             android:layout_marginBottom="5sp"
             android:layout_margin="20sp"
             android:textSize="20sp"/>
 
+
         <SeekBar
             android:id="@+id/seekBar"
-            android:layout_margin="24sp"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
+            android:layout_margin="24sp"
             android:layout_weight="10"
-            android:thumb="@drawable/thumb"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:fadeScrollbars="true"
             android:max="2"
-            android:progress="0"/>
+            android:progress="0"
+            android:thumb="@drawable/thumb" />
 
     </LinearLayout>
 
@@ -86,13 +91,14 @@
         android:text="@string/doneButton"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="bottom"
-        android:layout_gravity="bottom"
+        android:layout_gravity="center_horizontal"
         android:text="@string/info"
         android:layout_weight="1"
-        android:layout_margin="12sp"
+
+        android:layout_marginBottom="24sp"
         android:textSize="20sp"/>
 
 

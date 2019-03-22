@@ -1,6 +1,7 @@
 package guessinggame.cp3406.jcu.edu.au.quickradar;
 
 import android.content.Intent;
+import android.drm.DrmStore;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
@@ -19,11 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
     public BomGrabber grabber = new BomGrabber();
     final Handler handler = new Handler();
-    public int rangeInt = 1;
+    private int rangeInt = 1;
     TextView textView;
     ImageView imageViewOverlay;
     ImageView imageViewBackground;
     ImageView imageViewLocations;
+    private int playbackSpeed = 500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         imageViewLocations = (ImageView)findViewById(R.id.locationsOverlay);
         imageViewBackground = (ImageView)findViewById(R.id.imageViewBackground);
+
         switch (rangeInt) {
             case 0:
                 imageViewBackground.setImageResource(R.drawable.background64km);
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     updateAnimation();
-                    handler.postDelayed(this, 500);
+                    handler.postDelayed(this, playbackSpeed);
                 }
             });
     }
@@ -81,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK){
                 if (data != null){
                     rangeInt = data.getIntExtra("range", 0);
+                    playbackSpeed = data.getIntExtra("speed", 1000);
 
                 }
             }

@@ -13,6 +13,7 @@ public class Settings extends AppCompatActivity {
 
     private SeekBar seekBar;
     private TextView textView;
+    private Spinner spinner;
     int radarRange;
     public static final int SETTINGS_REQUEST = 1;
 
@@ -23,6 +24,7 @@ public class Settings extends AppCompatActivity {
 
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         textView = (TextView) findViewById(R.id.range);
+
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int radarRange = 0;
@@ -60,10 +62,30 @@ public class Settings extends AppCompatActivity {
         finish();
     }
 
+    public int getSpeedFromSpinner(String text){
+        int speed = 1000;
+        switch (text){
+            case "Slow":
+                speed = 1500;
+                break;
+            case "Medium":
+                speed = 1000;
+                break;
+            case "Fast":
+                speed = 500;
+                break;
+        }
+        return speed;
+    }
+
 
     public void doneClicked(View view){
+        Spinner spinner = (Spinner) findViewById(R.id.speedSpinner);
+        String text = spinner.getSelectedItem().toString();
+        int speed = getSpeedFromSpinner(text);
         radarRange= seekBar.getProgress();
         Intent intent = new Intent();
+        intent.putExtra("speed", speed);
         intent.putExtra("range", radarRange);
         setResult(RESULT_OK, intent);
         finish();
