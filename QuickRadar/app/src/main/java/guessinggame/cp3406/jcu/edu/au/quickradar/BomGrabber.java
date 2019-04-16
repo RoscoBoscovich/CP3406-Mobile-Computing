@@ -24,22 +24,21 @@ public class BomGrabber extends DefaultHandler {
 
 
     public Bitmap[] overlays = new Bitmap[7];
-    private String[] urls = new String[7];
-    private String[] timesArray = new String[7];
-    private String timeUTC;
     public int animationIndex = 6;
 
+    public String[] urls = new String[7];
+    public String[] timesArray = new String[7];
+    public String timeUTC;
 
-    private void getUTCtime(){
+
+    public void getUTCtime(){
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd:HH:mm");
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         timeUTC = dateFormat.format(date);
     }
 
-
-    private void getTimeArray(){
-        this.getUTCtime();
+    public void getTimeArray(){
         String[] dateTime = timeUTC.split(":");
         int timeMins = Integer.parseInt(dateTime[2]);
         int timeHours = Integer.parseInt(dateTime[1]) ;
@@ -63,12 +62,10 @@ public class BomGrabber extends DefaultHandler {
         }
     }
 
-
-    private void getBOMUrls(int range) {
+    public void getBOMUrls(int range) {
         String url64km = "http://www.bom.gov.au/radar/IDR194.T.";
         String url128km = "http://www.bom.gov.au/radar/IDR193.T.";
         String url256km = "http://www.bom.gov.au/radar/IDR192.T.";
-        this.getTimeArray();
         for (int i=0; i<7; i++){
             switch (range) {
                 case 0:
@@ -82,7 +79,6 @@ public class BomGrabber extends DefaultHandler {
             }
         }
     }
-
 
     private Bitmap getImage(String url) {
         try {
@@ -99,14 +95,14 @@ public class BomGrabber extends DefaultHandler {
         }
     }
 
-
     public void getOverlays(int range){
+        this.getUTCtime();
+        this.getTimeArray();
         this.getBOMUrls(range);
         for (int i = 0; i < 7; i++) {
             overlays[i] = this.getImage(urls[i]);
         }
     }
-
 
     public void stepIndex(){
         if (animationIndex==0){
@@ -116,4 +112,3 @@ public class BomGrabber extends DefaultHandler {
         }
     }
 }
-

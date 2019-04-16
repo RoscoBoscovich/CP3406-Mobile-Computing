@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">StopWatchApp</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="done">Done</string>
+    <string name="speedBox">Enter Speed (in ms):</string>
+    <string name="speed1000">1000</string>
+    <string name="start">Start</string>
+    <string name="reset">Reset</string>
+    <string name="settings">SETTINGS</string>
+</resources>

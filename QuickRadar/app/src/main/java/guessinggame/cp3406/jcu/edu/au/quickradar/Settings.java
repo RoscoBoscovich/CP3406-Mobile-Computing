@@ -15,15 +15,18 @@ public class Settings extends AppCompatActivity {
     private TextView textView;
     private Spinner spinner;
     int radarRange;
-    public static final int SETTINGS_REQUEST = 1;
+    int speed;
+    public static final int SETTINGS_REQUEST = 333;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         textView = (TextView) findViewById(R.id.range);
+        spinner = (Spinner) findViewById(R.id.speedSpinner);
 
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -56,9 +59,21 @@ public class Settings extends AppCompatActivity {
         }
 
     @Override
+    protected void onNewIntent(Intent intent){
+        super.onNewIntent(intent);
+            radarRange = intent.getIntExtra("range", 1);
+            speed = intent.getIntExtra("speed", 1000);
+            seekBar.setProgress(radarRange);
+            spinner.setSelection((speed/500)-1);
+            Toast.makeText(getApplicationContext(), String.format("range %d",radarRange), Toast.LENGTH_SHORT).show();
+    }
+
+
+
+    @Override
     public void onBackPressed(){
         super.onBackPressed();
-        Toast.makeText(getApplicationContext(), String.format("Changes Cancelled",radarRange), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Changes Cancelled", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -69,7 +84,6 @@ public class Settings extends AppCompatActivity {
                 speed = 1500;
                 break;
             case "Medium":
-                speed = 1000;
                 break;
             case "Fast":
                 speed = 500;
@@ -80,7 +94,7 @@ public class Settings extends AppCompatActivity {
 
 
     public void doneClicked(View view){
-        Spinner spinner = (Spinner) findViewById(R.id.speedSpinner);
+        spinner = (Spinner) findViewById(R.id.speedSpinner);
         String text = spinner.getSelectedItem().toString();
         int speed = getSpeedFromSpinner(text);
         radarRange= seekBar.getProgress();

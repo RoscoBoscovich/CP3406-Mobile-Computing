@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:layout_weight="2"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:textSize="36sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="@string/speed"
+            android:layout_weight="15"
+            android:gravity="center_vertical"
+            android:layout_marginStart="12sp"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/speedSpinner"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="12sp"
+            android:layout_marginEnd="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:entries="@array/playbackSpeed">
+        </Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="fill_vertical"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/range"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/range64"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5sp"
+            android:layout_marginStart="12sp"
+            android:textSize="20sp"/>
+
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+
+            android:layout_marginStart="24sp"
+            android:layout_marginEnd="12sp"
+            android:paddingStart="40sp"
+            android:paddingEnd="40sp"
+            android:fadeScrollbars="true"
+            android:max="2"
+            android:progress="0"
+            android:thumb="@drawable/thumb" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="doneClicked"
+        android:text="@string/doneButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/info"
+        android:layout_weight="2"
+        android:textSize="20sp"/>
+
+
+</android.support.v7.widget.LinearLayoutCompat>

@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_name">CairnsRadar</string>
+    <string name="info">Image and radar data from\nThe Bureau of Meteorology</string>
+    <string name="overlay">Overlay</string>
+    <string name="background">Background</string>
+    <string name="settings">SETTINGS</string>
+    <string name="animation">Animations</string>
+    <string name="speed">Playback Speed</string>
+    <string name="doneButton">APPLY</string>
+    <string name="range64">Range: <b> 64km</b></string>
+    <string name="range128">Range: <b>128km</b></string>
+    <string name="range256">Range: <b>256km</b></string>
+    <string name="radar">Radar</string>
+
+    <string-array name="range">
+        <item>64km</item>
+        <item>128km</item>
+        <item>256km</item>
+    </string-array>
+
+    <string-array name="playbackSpeed">
+        <item>Slow</item>
+        <item>Medium</item>
+        <item>Fast</item>
+    </string-array>
+
+
+</resources>
